@@ -1,3 +1,5 @@
+"use strict";
+
 /*class List{
     constructor(){
         this.data = [];
@@ -46,11 +48,15 @@ const user = {nome: 'Dena'};
 user.nome = 'Cleiton';//mutar a variavel
 
 function teste(x){
-    let y = 2
+    let y = 2//limita a variavel dentro do escopo
 
     if(x > 5){
         console.log(x,y);
     }
 }
 teste(10);*/
-"use strict";
+var array = [1, 2, 4, 5, 6];
+var newAre = array.map(function (item, index) {
+  return item * index;
+});
+console.log(array, newAre);
