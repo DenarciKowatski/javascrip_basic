@@ -1,16 +1,12 @@
 "use strict";
 
-function _objectWithoutProperties(source, excluded) { if (source == null) return {}; var target = _objectWithoutPropertiesLoose(source, excluded); var key, i; if (Object.getOwnPropertySymbols) { var sourceSymbolKeys = Object.getOwnPropertySymbols(source); for (i = 0; i < sourceSymbolKeys.length; i++) { key = sourceSymbolKeys[i]; if (excluded.indexOf(key) >= 0) continue; if (!Object.prototype.propertyIsEnumerable.call(source, key)) continue; target[key] = source[key]; } } return target; }
-
-function _objectWithoutPropertiesLoose(source, excluded) { if (source == null) return {}; var target = {}; var sourceKeys = Object.keys(source); var key, i; for (i = 0; i < sourceKeys.length; i++) { key = sourceKeys[i]; if (excluded.indexOf(key) >= 0) continue; target[key] = source[key]; } return target; }
-
 /*class List{
     constructor(){
-        this.data = [];
+        this.vetor = [];
     }
-    add(data){
-        this.data.push(data);
-        console.log(this.data)
+    add(vetor){
+        this.vetor.push(vetor);
+        console.log(this.vetor)
     }
 }
 
@@ -104,26 +100,88 @@ const usuário = {
 console.log(usuário);
 
 const { nome, idade, endereço:{ cidade}} = usuário;
-console.log(nome, idade, cidade);*/
+console.log(nome, idade, cidade);
+
+
 //REST
-var usuário = {
-  nome: 'Denarci',
-  idade: 24,
-  endereço: {
-    cidade: 'concordia',
-    estado: 'SC'
-  }
+
+const usuário = {
+    nome: 'Denarci',
+    idade: 24,
+    endereço:{
+        cidade: 'concordia',
+        estado:'SC'
+    },
 };
 
-var nome = usuário.nome,
-    resto = _objectWithoutProperties(usuário, ["nome"]);
+//soma();
 
+const {nome, ...resto} = usuário;
 console.log(nome);
 console.log(resto);
-var array = [1, 2, 3, 45];
-var a = array[0],
-    b = array[1],
-    c = array.slice(2);
+
+const array = [1,2,3,45];
+const [a, b, ...c] = array;
 console.log(a);
 console.log(b);
 console.log(c);
+
+
+function soma(a, b, ...params){
+    return params.reduce((total, next) => total + next);
+}
+
+console.log(soma(1,3,5,6,7));
+
+
+// SPREAD
+
+const array1 = [1,2,3];
+const array2 = [4,5,6];
+
+const array3 = [...array1, ...array2];// vai unir as arrays
+
+console.log(array3);
+
+
+const usuario = {
+    nome: 'Denarci',
+    idade: 24,
+    endereço:{
+        cidade: 'concordia',
+        estado:'SC'
+    },
+};
+
+const usuario2 = { ...usuario, nome : 'Gabriel'};
+console.log(usuario2);
+
+*/
+var nome = 'Dena';
+var idade = 23;
+console.log("Meu nome \xE9 ".concat(nome, " e tenho ").concat(idade, " anos"));
+var user = {
+  nome: nome,
+  //nome: nome,
+  idade: idade,
+  //idade: idade,
+  empresa: 'Movitech'
+};
+console.log(user);
+/*
+const insertionSort = arr => {
+    const len = arr.length;
+    for (let i = 0; i < len; i++) {
+      let el = arr[i];
+      let j;
+  
+      for (j = i - 1; j >= 0 && arr[j] > el; j--) {
+        arr[j + 1] = arr[j];
+      }
+      arr[j + 1] = el;
+    }
+    return arr;
+  };
+
+
+  ////////*/
